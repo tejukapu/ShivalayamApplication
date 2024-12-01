@@ -1,0 +1,122 @@
+.home-page {
+  font-family: Arial, sans-serif;
+  margin: 3px;
+  padding: 3px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column; /* Default to column layout */
+ 
+}
+header {
+  background-color: rgba(255, 215, 0, 0.8);
+    padding-top: 20px;
+    padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  color: black;
+  height: 100px; /* Set a fixed height for the header */
+}
+
+header h1 {
+  color: black;
+  text-align: center;
+  flex-grow: 1; /* Make the text take up available space */
+  font-size: 20px; /* Adjust font size as needed */
+  margin: 0; /* Remove default margins */
+}
+
+header img {
+  width: 195px; /* Adjust the width as needed */
+  height: autopx; /* Maintain aspect ratio */
+  object-fit:fill; /* Crop image to fit within the container */
+  /* Optional: Add a border or adjust padding for aesthetics */
+  float: right;
+  border-radius: 4px;
+  
+ 
+}
+
+main {
+  flex: 1;
+  padding: 5px;
+
+  color: black;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Default to column layout */
+  
+  border-radius: 5px;
+}
+
+.left-column, .right-column {
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.left-column {
+  flex: 7; /* Occupy 70% of the space */
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);}
+    
+ .left-column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+
+.right-column {
+  flex: 3; /* Occupy 30% of the space */
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+  }
+}
+
+
+
+.heritage {
+  color: black;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px 0;
+  line-height: 1.5; /* Adjust line height for better readability */
+}
+
+/* Add a background color or border for emphasis */
+.heritage {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Add a shadow effect */
+.heritage {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.footer{
+background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 3px;
+  
+}
+
+.temple-header{
+color: green;
+background-color: white;
+text-decoration: underline;
+}
+
+.signup-header{
+color: green;
+background-color: white;
+text-decoration: underline;
+}
+

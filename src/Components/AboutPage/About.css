@@ -1,0 +1,12 @@
+
+.AUTHOR{
+  color: white;
+}
+
+.about-section{
+  background-color: black;
+  color:white;
+  height: 250px;
+  margin: 5px;
+  padding: 10px;
+}

@@ -1,0 +1,19 @@
+.heritage {
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
+    line-height: 1.5; /* Adjust line height for better readability */
+  }
+  
+  /* Add a background color or border for emphasis */
+  .heritage {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Add a shadow effect */
+  .heritage {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
