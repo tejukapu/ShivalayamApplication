@@ -1,77 +1,78 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import './Login.css'; // Import your CSS file for styling
 
-function Login() {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+const navigate= useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:8080/login', {email, password})
+    .then(result=>{console.log(result)
+      console.log('Login succesfull')
+        navigate('/booking')
+      
+     
+    })
+    .catch(err=>console.log(err))
+
+      
+      
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="text-center font-bold text-3xl">Login</h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Please sign in to your account
+    <div className="signup">
+      <form onSubmit={handleSubmit} className="signup-form">
+        <h2>Login</h2>
+
+        
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter Your Email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter Your Password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+       
+        <button type="submit" className="submit-button">
+          Sign Up
+        </button>
+      </form>
+
+      <p className="login-prompt">
+        Dont Have an account? <button className='button-link'><Link to="/signup">Signup</Link>
+          </button>
+      </p>
+
+      <div className="security-info">
+        <p>
+          Your data is safe with us. <br />
+          We employ industry-standard security measures to protect your
+          personal information.
         </p>
-
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Your email
-            </label>
-            <div className="mt-1">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-          </div>
-
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Your password
-            </label>
-            <div className="mt-1">
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Sign in
-            </button>
-          </div>
-        </form>
-
-        <p className="mt-2 text-center text-sm text-gray-600">
-        Don't have an account? <Link to="/signup">Sign Up</Link>
-      </p>      </div>
+        <p>- Ravi Teja</p>
+      </div>
     </div>
   );
-}
+};
 
 export default Login;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Signup.css'; // Import your CSS file for styling
 
@@ -9,6 +9,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const navigate= useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,13 +20,13 @@ const Signup = () => {
         email,
         password,
       });
-
       console.log(response.data);
       setSuccessMessage('Signup successful! Please login.'); // Display success message
       setErrorMessage(''); // Clear any previous errors
       setName(''); // Reset form fields
       setEmail('');
       setPassword('');
+      navigate('/login');
     } catch (error) {
       console.error(error);
       setSuccessMessage(''); // Clear any success messages
